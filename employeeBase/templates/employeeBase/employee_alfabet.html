@@ -1,0 +1,18 @@
+{% extends "employeeBase/wrapper.html" %} {% block content %} {% load staticfiles %}
+<div class="container">
+
+<h1 class="heads">Алфавитный список работников</h1>
+<div class=" up_string" >
+    {% for link,str in str_for_links.items %}
+    <span class="alfabet" >
+        <a href="{% url 'employee:alfabet'%}?letters={{link}}">{{str}}</a>
+    </span>
+    {% endfor %}
+</div>
+<div class="surname_list">
+    {% for employee in object_list%}
+        <p><a href="{% url 'employee:detail' employee.id %}">{{employee}}</a></p>
+    {% endfor %}
+    </div>
+</div>
+    {%endblock%}

@@ -1,0 +1,21 @@
+{% extends "employeeBase/wrapper.html" %} {% block content %} {% load staticfiles %}
+<div class="container">
+    <h3>Информация о работнике :</h3>
+    <br />{{object.name}}
+    <br />{{object.surname}}
+    <br />{{object.patronymic}}
+    <br />{{object.birth_day}}
+    <br />{{object.email}}
+    <br />{{object.tel}}
+    <br />{{object.begin_work}}
+    <br />
+    {% if  object.end_work %}
+        уволен {{object.end_work}}
+    {% else %}
+        Всё ещё работает
+    {% endif %}
+    <br />{{object.Position}}
+    <br />Отдел {{object.departament}}
+    <br /><a href="{% url 'employee:list' %}">К списку</a>
+</div>
+{%endblock%}

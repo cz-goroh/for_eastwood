@@ -1,0 +1,7 @@
+{% extends "employeeBase/wrapper.html" %} {% load staticfiles %}
+{% block content %}
+<div class="container">
+    <a href="{% url 'employee:list' %}" >Работники по фильтрам</a>
+    <br /><a href="{% url 'employee:alfabet' %}"> Алфавитный список</a>
+    </div>
+{% endblock %}

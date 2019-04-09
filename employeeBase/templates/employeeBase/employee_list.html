@@ -1,0 +1,43 @@
+{% extends "employeeBase/wrapper.html" %} {% block content %} {% load staticfiles %}
+<div class="container">
+
+<h1 class="heads" >Список сотрудников:</h1>
+
+<form action="">
+    <select class="" name="departament">
+        {% for departament in departaments  %}
+            <option value="{{departament.id}}">
+                Отдел {{departament}}
+                </option>
+        {% endfor %}
+    </select>
+    <select class="" name="is_work">
+        <option value="work">Всё ещё работает</option>
+        <option value="fired">Уволен</option>
+    </select>
+    <button name="filters" value="1" type="submit">Применить</button>
+    <a href="{% url 'employee:list' %}">Полный список</a>
+    </form>
+
+{% for employee in object_list  %}
+    <p><a href="{% url 'employee:detail' employee.id %}">{{employee}}</a></p>
+{% endfor %}
+
+{% if is_paginated %}
+        <div class="pagination">
+            <span class="page-links">
+                {% if page_obj.has_previous %}
+                    <a href="{% url 'employee:list' %}?page={{ page_obj.previous_page_number }}">Назад</a>
+                {% endif %}
+                <span class="page-current">
+                    Страница {{ page_obj.number }} из {{ page_obj.paginator.num_pages }}.
+                </span>
+                {% if page_obj.has_next %}
+                    <a href="{% url 'employee:list' %}?page={{ page_obj.next_page_number }}">Вперёд</a>
+                {% endif %}
+            </span>
+        </div>
+    {% endif %}
+    <a href="{% url 'employee:alfabet' %}"> алфавитный список</a>
+    </div>
+{%endblock%}

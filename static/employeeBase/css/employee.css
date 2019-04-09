@@ -1,0 +1,15 @@
+.heads{
+    color:grey;
+}
+.alfabet{
+    background-color: #D8D8D8;
+    padding: 10px;
+    margin: auto;
+    display: inline-block;
+}
+.up_string{
+    text-align: center;
+}
+.surname_list{
+    margin: 5%;
+}
